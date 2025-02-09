@@ -1,9 +1,9 @@
-let currentSlide = -1; // Start at -1 to handle intro separately
-const slides = document.querySelectorAll('.slide');
+let currentSlide = -1; // -1 so intro starts first
+const slides = document.querySelectorAll('.slide:not(#introSlide)'); // Select all slides except the intro
 
 function startSlides() {
     document.getElementById("introSlide").style.display = "none"; // Hide intro slide
-    currentSlide = 0; // Move to the first slide
+    currentSlide = 0; // Move to first message slide
     slides[currentSlide].style.display = "block"; // Show first custom slide
     document.getElementById("navButtons").style.display = "block"; // Show navigation buttons
 }
@@ -16,7 +16,7 @@ function showSlide(n) {
     currentSlide = n;
     slides[currentSlide].style.display = 'block';
 
-    // Show navigation buttons only for the 4 custom slides
+    // Show navigation buttons only for the 4 custom message slides
     if (currentSlide >= 0 && currentSlide <= 3) {
         document.getElementById('navButtons').style.display = 'block';
     } else {
@@ -52,7 +52,7 @@ function sendMessage() {
     }
 
     let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse";
-    let entryID = "entry.1143575870"; // Use the correct Entry ID
+    let entryID = "entry.1143575870"; // Correct Entry ID
 
     let formData = new FormData();
     formData.append(entryID, messageContent);
@@ -73,4 +73,4 @@ function sendMessage() {
 for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
 }
-document.getElementById("introSlide").style.display = "flex"; // Show intro slide on load
+document.getElementById("introSlide").style.display = "flex"; // Show intro slide by default
