@@ -31,24 +31,38 @@ function sayNo() {
     document.getElementById('noButton').style.display = 'none';
 }
 
-function sayYes() {
+function showMessageSlide() {
     alert("Yay! You made the right choice! 💖");
+    
+    // Hide final slide & show message slide
+    document.getElementById('finalSlide').style.display = 'none';
+    document.getElementById('messageSlide').style.display = 'block';
+}
 
-    // Send email notification
-    fetch("https://formsubmit.co/el/xafaxe", {
+function sendMessage() {
+    let messageContent = document.getElementById('valentineMessage').value;
+    if (messageContent.trim() === "") {
+        alert("Please type a message before sending! 💌");
+        return;
+    }
+
+    // Send email notification with message
+    fetch("https://formsubmit.co/YOUR_UNIQUE_EMAIL", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
-            subject: "Valentine's Button Clicked! ❤️",
-            message: "'I will be your Valentine'!",
+            subject: "Valentine's Message ❤️",
+            message: "Someone just pressed 'I will be your Valentine'!\n\nMessage: " + messageContent,
             timestamp: new Date().toLocaleString()
         })
     })
     .then(response => {
-        console.log("Notification sent successfully!");
+        alert("Message sent successfully! 💌");
+        console.log("Notification sent!");
     })
     .catch(error => {
         console.error("Error sending email:", error);
+        alert("Oops! Something went wrong. Try again.");
     });
 }
 
