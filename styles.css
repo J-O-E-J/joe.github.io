@@ -64,6 +64,11 @@ textarea {
     margin: 10px 0;
 }
 
+/* Hide navigation buttons on final slides */
+#valentineQuestion ~ .navigation {
+    display: none;
+}
+
 /* Responsive for mobile */
 @media (max-width: 600px) {
     .big-text {
