@@ -1,19 +1,22 @@
-let currentSlide = 0;
+let currentSlide = -1; // -1 to start from intro
 const slides = document.querySelectorAll('.slide');
 
 function startSlides() {
     document.getElementById("introSlide").style.display = "none"; // Hide intro slide
-    currentSlide = 0; // Start from the first reason slide
-    slides[currentSlide].style.display = "block"; // Show first reason slide
+    currentSlide = 0; // Start from the first custom message slide
+    slides[currentSlide].style.display = "block"; // Show first custom slide
     document.getElementById("navButtons").style.display = "block"; // Show navigation buttons
 }
 
 function showSlide(n) {
-    slides[currentSlide].style.display = 'none';
-    currentSlide = (n + slides.length) % slides.length;
+    if (currentSlide !== -1) {
+        slides[currentSlide].style.display = 'none';
+    }
+    
+    currentSlide = n;
     slides[currentSlide].style.display = 'block';
 
-    // Show navigation buttons only on the first 4 slides
+    // Show navigation only for the 4 custom message slides
     if (currentSlide >= 0 && currentSlide <= 3) {
         document.getElementById('navButtons').style.display = 'block';
     } else {
@@ -22,7 +25,9 @@ function showSlide(n) {
 }
 
 function nextSlide() {
-    changeSlide(1);
+    if (currentSlide < 3) {  // Only for the 4 custom message slides
+        changeSlide(1);
+    }
 }
 
 function changeSlide(n) {
@@ -30,7 +35,7 @@ function changeSlide(n) {
 }
 
 function showFinalOption() {
-    document.getElementById('valentineQuestion').style.display = 'none';
+    slides[currentSlide].style.display = 'none';
     document.getElementById('finalYesSlide').style.display = 'block';
 }
 
@@ -64,11 +69,11 @@ function sendMessage() {
     });
 }
 
-// Ensure the first slide starts hidden (except the intro slide)
+// Ensure only intro slide is visible on load
 for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
 }
-document.getElementById("introSlide").style.display = "flex"; // Show the intro slide by default
+document.getElementById("introSlide").style.display = "flex"; // Show intro slide by default
 
 
-   
+    
