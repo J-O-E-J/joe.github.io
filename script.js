@@ -2,9 +2,10 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
 function startSlides() {
-    document.getElementById("introSlide").style.display = "none";
-    showSlide(0);
-    document.getElementById("navButtons").style.display = "block";
+    document.getElementById("introSlide").style.display = "none"; // Hide intro slide
+    currentSlide = 0; // Start from the first reason slide
+    slides[currentSlide].style.display = "block"; // Show first reason slide
+    document.getElementById("navButtons").style.display = "block"; // Show navigation buttons
 }
 
 function showSlide(n) {
@@ -63,4 +64,11 @@ function sendMessage() {
     });
 }
 
-showSlide(0);
+// Ensure the first slide starts hidden (except the intro slide)
+for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+}
+document.getElementById("introSlide").style.display = "flex"; // Show the intro slide by default
+
+
+   
