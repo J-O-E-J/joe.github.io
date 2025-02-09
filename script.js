@@ -43,10 +43,11 @@ function sendMessage() {
     }
 
     // Replace with your Google Apps Script Web App URL
-    let googleScriptURL = "https://script.google.com/macros/s/AKfycbxDGg8iyTVQsRhkpnVO-SLecd6hdBV9rOm2AY7G-C47tC6XDfaUN2bEMtwgCE_mieE_/exec";
+    let googleScriptURL = "https://script.google.com/macros/s/AKfycbyv427ZGqxn2uJ22ndLe07fEjR7lx-NYtQPqULQqMk_EUKJsRDbqkJd4zlKmDfVp3N5/exec";
 
     fetch(googleScriptURL, {
         method: "POST",
+        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: messageContent })
     })
