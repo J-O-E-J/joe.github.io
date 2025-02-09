@@ -12,18 +12,16 @@ function showSlide(n) {
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].style.display = 'block';
 
-    // Hide navigation buttons after the 4th slide
-    if (currentSlide >= 4) {
-        document.getElementById('navButtons').style.display = 'none';
-    } else {
+    // Show navigation buttons only on the first 4 slides
+    if (currentSlide >= 0 && currentSlide <= 3) {
         document.getElementById('navButtons').style.display = 'block';
+    } else {
+        document.getElementById('navButtons').style.display = 'none';
     }
 }
 
 function nextSlide() {
-    if (currentSlide < slides.length - 4) {
-        changeSlide(1);
-    }
+    changeSlide(1);
 }
 
 function changeSlide(n) {
@@ -47,7 +45,7 @@ function sendMessage() {
         return;
     }
 
-    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse";
+    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse"";
     let entryID = "entry.1143575870";
 
     let formData = new FormData();
