@@ -42,12 +42,21 @@ function sendMessage() {
         return;
     }
 
-    // Set message value in hidden input field
-    document.getElementById('emailMessage').value = messageContent;
+    // Replace with your Google Apps Script Web App URL
+    let googleScriptURL = "https://script.google.com/macros/s/AKfycbxwpedvV0pzdHzHOuiFpUkbrrhEL4CuwgkDDk7nMiRDsWvrmOZFEN2jqm-zD4gX66Js/exec";
 
-    // Submit the hidden form
-    document.getElementById('emailForm').submit();
-
-    alert("Message sent successfully! 💌");
+    fetch(googleScriptURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: messageContent })
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert("Message saved successfully! ✅ Check Google Sheets.");
+    })
+    .catch(error => {
+        console.error("Error saving message:", error);
+        alert("Oops! Something went wrong. Try again.");
+    });
 }
 showSlide(0);
