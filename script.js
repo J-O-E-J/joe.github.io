@@ -51,8 +51,8 @@ function sendMessage() {
         return;
     }
 
-    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse"";
-    let entryID = "entry.1143575870";
+    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse";
+    let entryID = "entry.1143575870"; // Correct entry ID
 
     let formData = new FormData();
     formData.append(entryID, messageContent);
@@ -74,6 +74,3 @@ for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
 }
 document.getElementById("introSlide").style.display = "flex"; // Show intro slide by default
-
-
-    
