@@ -1,6 +1,12 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
+function startSlides() {
+    document.getElementById("introSlide").style.display = "none";
+    showSlide(0);
+    document.getElementById("navButtons").style.display = "block";
+}
+
 function showSlide(n) {
     slides[currentSlide].style.display = 'none';
     currentSlide = (n + slides.length) % slides.length;
@@ -14,7 +20,6 @@ function showSlide(n) {
     }
 }
 
-// Ensure "Nah" always moves to the next slide only
 function nextSlide() {
     if (currentSlide < slides.length - 4) {
         changeSlide(1);
@@ -42,9 +47,8 @@ function sendMessage() {
         return;
     }
 
-    // Replace with your actual Google Form URL & Entry ID
     let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse";
-    let entryID = "entry.1143575870"; // Replace with your Form Entry ID
+    let entryID = "entry.1143575870";
 
     let formData = new FormData();
     formData.append(entryID, messageContent);
