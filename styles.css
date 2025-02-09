@@ -16,13 +16,14 @@ body {
     padding: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .big-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #d63384;
+    padding: 10px;
 }
 
 .slide {
