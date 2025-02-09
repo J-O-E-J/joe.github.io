@@ -20,18 +20,17 @@
             <h2>Reason #3</h2>
             <p class="big-text">Life feels so much better when you're around.</p>
         </div>
-        <div class="slide">
+        <div class="slide" id="finalSlide">
             <h2>Will you be my Valentine?</h2>
             <button id="noButton" onclick="sayNo()">No</button>
             <p id="hiddenMessage" class="big-text" style="display: none;">You have no other option now! 💖</p>
-            <button id="yesButton" onclick="sayYes()" style="display: none;">I will be your Valentine</button>
+            <button id="yesButton" onclick="sayYes()" class="center-button" style="display: none;">I will be your Valentine</button>
         </div>
     </div>
-    <div class="navigation">
+    <div class="navigation" id="navButtons">
         <button onclick="changeSlide(-1)">Not Interested</button>
         <button onclick="changeSlide(1)">Wanna Hear More</button>
     </div>
-    <div id="animationContainer" class="hidden-animation"></div>
     <script src="script.js"></script>
 </body>
 </html>
