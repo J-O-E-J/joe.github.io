@@ -6,22 +6,23 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #ffe6e6;
+    background: linear-gradient(to bottom, #ffcccc, #ff99cc, #ff66b2, #ff3399);
     text-align: center;
 }
 
 .slideshow-container {
     background-color: white;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
 }
 
 .big-text {
     font-size: 2rem;
     font-weight: bold;
+    color: #d63384;
 }
 
 .slide {
@@ -29,25 +30,44 @@ body {
 }
 
 button {
-    background-color: #ff4d4d;
+    background-color: #ff3399;
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 12px 25px;
     margin: 10px;
     font-size: 1.2rem;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #ff1a75;
 }
 
 .navigation {
     margin-top: 20px;
 }
 
-.hidden-animation {
+/* Hide navigation buttons on last slide */
+#finalSlide ~ .navigation {
     display: none;
-    width: 100px;
-    height: 100px;
-    margin-top: 20px;
-    background-image: url('https://media.giphy.com/media/jR9Pcsy7GKnKw/giphy.gif');
-    background-size: cover;
+}
+
+/* Center the final button */
+.center-button {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .big-text {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
 }
