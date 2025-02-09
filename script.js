@@ -5,11 +5,18 @@ function showSlide(n) {
     slides[currentSlide].style.display = 'none';
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].style.display = 'block';
+
+    // Hide navigation buttons after the 4th slide
+    if (currentSlide >= 4) {
+        document.getElementById('navButtons').style.display = 'none';
+    } else {
+        document.getElementById('navButtons').style.display = 'block';
+    }
 }
 
-// Ensure "Not Interested" always moves to the next slide only
+// Ensure "Nah" always moves to the next slide only
 function nextSlide() {
-    if (currentSlide < slides.length - 2) {
+    if (currentSlide < slides.length - 4) {
         changeSlide(1);
     }
 }
@@ -18,11 +25,13 @@ function changeSlide(n) {
     showSlide(currentSlide + n);
 }
 
+function showFinalOption() {
+    document.getElementById('valentineQuestion').style.display = 'none';
+    document.getElementById('finalYesSlide').style.display = 'block';
+}
+
 function showMessageSlide() {
-    alert("Yay! You made the right choice! 💖");
-    
-    // Hide final slide & show message slide
-    document.getElementById('finalSlide').style.display = 'none';
+    document.getElementById('finalYesSlide').style.display = 'none';
     document.getElementById('messageSlide').style.display = 'block';
 }
 
