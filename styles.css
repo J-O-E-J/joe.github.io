@@ -46,15 +46,6 @@ button:hover {
     background-color: #ff1a75;
 }
 
-.navigation {
-    margin-top: 20px;
-}
-
-/* Hide navigation buttons on last slide */
-#finalSlide ~ .navigation {
-    display: none;
-}
-
 /* Center the final button */
 .center-button {
     display: block;
