@@ -5,6 +5,13 @@ function showSlide(n) {
     slides[currentSlide].style.display = 'none';
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].style.display = 'block';
+
+    // Hide navigation buttons on the last slide
+    if (currentSlide === slides.length - 1) {
+        document.getElementById('navButtons').style.display = 'none';
+    } else {
+        document.getElementById('navButtons').style.display = 'block';
+    }
 }
 
 function changeSlide(n) {
@@ -19,7 +26,6 @@ function sayNo() {
 
 function sayYes() {
     alert("Yay! You made the right choice! 💖");
-    document.getElementById('animationContainer').style.display = 'block';
 }
 
 showSlide(0);
