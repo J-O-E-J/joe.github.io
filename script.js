@@ -47,12 +47,12 @@ function sendMessage() {
     }
 
     // Send email notification with message
-    fetch("https://formsubmit.co/YOUR_UNIQUE_EMAIL", {
+    fetch("https://formsubmit.co/el/xafaxe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
             subject: "Valentine's Message ❤️",
-            message: "Someone just pressed 'I will be your Valentine'!\n\nMessage: " + messageContent,
+            message: "'I will be your Valentine'!\n\nMessage: " + messageContent,
             timestamp: new Date().toLocaleString()
         })
     })
