@@ -28,7 +28,12 @@
             <h2>Will you be my Valentine?</h2>
             <button id="noButton" onclick="sayNo()">No</button>
             <p id="hiddenMessage" class="big-text" style="display: none;">You have no other option now! 💖</p>
-            <button id="yesButton" onclick="sayYes()" class="center-button" style="display: none;">I will be your Valentine</button>
+            <button id="yesButton" onclick="showMessageSlide()" class="center-button" style="display: none;">I will be your Valentine</button>
+        </div>
+        <div class="slide" id="messageSlide" style="display: none;">
+            <h2>Do you want to say anything to your sweet little Valentine? 💌</h2>
+            <textarea id="valentineMessage" placeholder="Type your message here..."></textarea>
+            <button onclick="sendMessage()">Send Message</button>
         </div>
     </div>
     <div class="navigation" id="navButtons">
