@@ -61,6 +61,18 @@ button:hover {
     margin: 20px auto;
 }
 
+/* Textbox Styling */
+textarea {
+    width: 90%;
+    max-width: 500px;
+    height: 100px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff3399;
+    margin: 10px 0;
+}
+
 /* Responsive for mobile */
 @media (max-width: 600px) {
     .big-text {
@@ -70,5 +82,10 @@ button:hover {
     button {
         padding: 10px 20px;
         font-size: 1rem;
+    }
+
+    textarea {
+        font-size: 1rem;
+        height: 80px;
     }
 }
