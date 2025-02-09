@@ -1,19 +1,27 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #ffe6e6;
+    text-align: center;
 }
 
 .slideshow-container {
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.big-text {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .slide {
@@ -24,12 +32,22 @@ button {
     background-color: #ff4d4d;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     margin: 10px;
+    font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .navigation {
     margin-top: 20px;
+}
+
+.hidden-animation {
+    display: none;
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    background-image: url('https://media.giphy.com/media/jR9Pcsy7GKnKw/giphy.gif');
+    background-size: cover;
 }
