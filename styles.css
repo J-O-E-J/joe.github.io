@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Arial", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,6 +8,25 @@ body {
     margin: 0;
     background: linear-gradient(to bottom, #ffcccc, #ff99cc, #ff66b2, #ff3399);
     text-align: center;
+}
+
+/* Intro Slide Styling */
+#introSlide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff1a75;
+    font-family: "Pacifico", cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .slideshow-container {
@@ -64,8 +83,8 @@ textarea {
     margin: 10px 0;
 }
 
-/* Hide navigation buttons on final slides */
-#valentineQuestion ~ .navigation {
+/* Hide navigation buttons on intro slide */
+#introSlide ~ .navigation {
     display: none;
 }
 
@@ -73,6 +92,10 @@ textarea {
 @media (max-width: 600px) {
     .big-text {
         font-size: 1.5rem;
+    }
+
+    .intro-text {
+        font-size: 2.5rem;
     }
 
     button {
