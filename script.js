@@ -14,6 +14,13 @@ function showSlide(n) {
     }
 }
 
+// Ensure "Not Interested" always moves to the next slide
+function nextSlide() {
+    if (currentSlide < slides.length - 2) {
+        changeSlide(1);
+    }
+}
+
 function changeSlide(n) {
     showSlide(currentSlide + n);
 }
