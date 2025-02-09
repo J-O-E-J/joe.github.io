@@ -5,13 +5,6 @@ function showSlide(n) {
     slides[currentSlide].style.display = 'none';
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].style.display = 'block';
-
-    // Hide navigation buttons on the last slide
-    if (currentSlide === slides.length - 1) {
-        document.getElementById('navButtons').style.display = 'none';
-    } else {
-        document.getElementById('navButtons').style.display = 'block';
-    }
 }
 
 // Ensure "Not Interested" always moves to the next slide only
@@ -23,12 +16,6 @@ function nextSlide() {
 
 function changeSlide(n) {
     showSlide(currentSlide + n);
-}
-
-function sayNo() {
-    document.getElementById('hiddenMessage').style.display = 'block';
-    document.getElementById('yesButton').style.display = 'block';
-    document.getElementById('noButton').style.display = 'none';
 }
 
 function showMessageSlide() {
@@ -46,24 +33,12 @@ function sendMessage() {
         return;
     }
 
-    // Send email notification with message
-    fetch("https://formsubmit.co/el/xafaxe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-            subject: "Valentine's Message ❤️",
-            message: "'I will be your Valentine'!\n\nMessage: " + messageContent,
-            timestamp: new Date().toLocaleString()
-        })
-    })
-    .then(response => {
-        alert("Message sent successfully! 💌");
-        console.log("Notification sent!");
-    })
-    .catch(error => {
-        console.error("Error sending email:", error);
-        alert("Oops! Something went wrong. Try again.");
-    });
-}
+    // Set message value in hidden input field
+    document.getElementById('emailMessage').value = messageContent;
 
+    // Submit the hidden form
+    document.getElementById('emailForm').submit();
+
+    alert("Message sent successfully! 💌");
+}
 showSlide(0);
