@@ -14,7 +14,7 @@ function showSlide(n) {
     }
 }
 
-// Ensure "Not Interested" always moves to the next slide
+// Ensure "Not Interested" always moves to the next slide only
 function nextSlide() {
     if (currentSlide < slides.length - 2) {
         changeSlide(1);
@@ -33,6 +33,23 @@ function sayNo() {
 
 function sayYes() {
     alert("Yay! You made the right choice! 💖");
+
+    // Send email notification
+    fetch("https://formsubmit.co/el/xafaxe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+            subject: "Valentine's Button Clicked! ❤️",
+            message: "'I will be your Valentine'!",
+            timestamp: new Date().toLocaleString()
+        })
+    })
+    .then(response => {
+        console.log("Notification sent successfully!");
+    })
+    .catch(error => {
+        console.error("Error sending email:", error);
+    });
 }
 
 showSlide(0);
