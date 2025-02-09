@@ -43,7 +43,7 @@ function sendMessage() {
     }
 
     // Replace with your Google Apps Script Web App URL
-    let googleScriptURL = "https://script.google.com/macros/s/AKfycbxUgq2LKxNi2o2DpzKnLrz_SjTfIp6uK1dk4u8jOGOJPRzNT-Z5nebCAe8tv4g48qUa/exec";
+    let googleScriptURL = "https://script.google.com/macros/s/AKfycbxDGg8iyTVQsRhkpnVO-SLecd6hdBV9rOm2AY7G-C47tC6XDfaUN2bEMtwgCE_mieE_/exec";
 
     fetch(googleScriptURL, {
         method: "POST",
