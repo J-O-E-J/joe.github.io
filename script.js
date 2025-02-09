@@ -11,13 +11,15 @@ function changeSlide(n) {
     showSlide(currentSlide + n);
 }
 
-function sayYes() {
-    alert("Yay! Happy Valentine's Day!");
+function sayNo() {
+    document.getElementById('hiddenMessage').style.display = 'block';
+    document.getElementById('yesButton').style.display = 'block';
+    document.getElementById('noButton').style.display = 'none';
 }
 
-function sayNo() {
-    document.getElementById('noMessage').style.display = 'block';
-    document.querySelector('.slide button:nth-child(2)').style.display = 'none';
+function sayYes() {
+    alert("Yay! You made the right choice! 💖");
+    document.getElementById('animationContainer').style.display = 'block';
 }
 
 showSlide(0);
