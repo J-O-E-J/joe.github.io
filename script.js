@@ -42,22 +42,23 @@ function sendMessage() {
         return;
     }
 
-    // Replace with your Google Apps Script Web App URL
-    let googleScriptURL = "https://script.google.com/macros/s/AKfycbyv427ZGqxn2uJ22ndLe07fEjR7lx-NYtQPqULQqMk_EUKJsRDbqkJd4zlKmDfVp3N5/exec";
+    // Replace with your actual Google Form URL & Entry ID
+    let googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeidCbncZzq9nVd0aM-BGHlXx-AoLlywseCNRNPBE173mZ-jw/formResponse";
+    let entryID = "entry.1143575870"; // Replace with your Form Entry ID
 
-    fetch(googleScriptURL, {
+    let formData = new FormData();
+    formData.append(entryID, messageContent);
+
+    fetch(googleFormURL, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: messageContent })
-    })
-    .then(response => response.text())
-    .then(result => {
-        alert("Message saved successfully! ✅ Check Google Sheets.");
-    })
-    .catch(error => {
-        console.error("Error saving message:", error);
-        alert("Oops! Something went wrong. Try again.");
+        body: formData,
+        mode: "no-cors"
+    }).then(() => {
+        alert("Message sent successfully! ✅ Check Google Sheets.");
+    }).catch(error => {
+        console.error("Error:", error);
+        alert("Oops! Something went wrong.");
     });
 }
+
 showSlide(0);
